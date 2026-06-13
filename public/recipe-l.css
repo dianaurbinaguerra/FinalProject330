@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+    background-color: var(--background-color);
+}
+
+main {
+    margin: 10px;
+    text-align: center;
+}
+
+h3,
+h2 {
+    color: var(--primary-color);
+    font-family: "Montserrat", sans-serif;
+}
+
+p {
+    color: var(--primary-color);
+    font-family: "Montserrat", sans-serif;
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-color);
+    padding-bottom: 1rem;
+    
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    background: #FFF5E5;
+}
+
+h1{
+    color: #26331C;
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    padding-top: 2rem;
+    text-align: center;
+
+}
+
+.container {
+    width: 320px;
+    margin: 10px auto;
+}
+
+.card {
+    box-shadow: 0 50px 55px -30px #E0C375;
+}
+
+
+
+
+@media only screen and (min-width: 600px) {
+
+    :root {
+        --background-color: #FFF5E5;
+        --primary-color: #E0C375;
+        --text-color: #26331C;
+        --accent1-color: #DD9455;
+        --buttons--color: #26331C;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    /* HOME RENTALS */
+
+    .container {
+        display: flex;
+        justify-content: space-around;
+        margin: 1rem;
+        padding-top: 2rem;
+
+    }
+
+
+    /* #attractionsdiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin: 2rem;
+        padding: 2rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    } */
+
+    /* #locationsdiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 2rem;
+        padding: 2rem;
+
+    } */
+
+    .locationspic {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+    }
+
+    .visiblehr {
+        display: block;
+    }
+
+
+    /* WEATHER */
+
+
+    #recipe-div{
+        display: flex;
+        column-gap: 4rem;
+        padding: 1rem 4rem;
+
+
+    }
+
+    .recipes-div {
+        display: flex;
+        justify-content: center;
+        column-gap: 2px;
+
+
+    }
+
+    #current-weather-div {
+        display: block;
+    }
+
+    #header-img {
+        background-color: white;
+    }
+
+    /* RENTAL FORM */
+
+    #option1,
+    #option2,
+    #option3 {
+
+        justify-content: center;
+
+    }
+
+    #rental1,
+    #rental2,
+    #rental3 {
+        padding: 2rem;
+        margin: 2rem 4rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    }
+
+    input[type=text],
+    input[type=tel],
+    input[type=email],
+    select {
+        padding: 0.5rem;
+    }
+
+    input[type=submit] {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    form label.top,
+    form div {
+        font-size: 1rem;
+
+    }
+
+    /* CONTACT */
+
+    hr {
+        display: none;
+    }
+
+    #map {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+
+    #faqcontact {
+        display: grid;
+        grid-template-columns: 60% 1fr;
+        margin: 2rem;
+    }
+
+
+    #faqdiv {
+        padding: 2rem;
+        margin-right: 1rem;
+        text-align: left;
+        padding-right: 4rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    }
+
+    #contactdiv {
+        padding: 2rem;
+    }
+
+    /* TOURS */
+
+    #tours {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 2rem;
+    }
+
+    #tours div {
+        box-shadow: 2px 5px 5px #c2c1c1;
+        margin: 1rem;
+        padding: 1rem;
+        height: 650px;
+    }
+
+    #tours div:hover {
+        box-shadow: 0 0 11px;
+    }
+
+    #beachdiv {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 2rem;
+    }
+
+    .responsive {
+        width: 100%;
+    }
+
+    #beach1 {
+        grid-column: 1/2;
+    }
+
+    #beachmap {
+        display: block;
+        padding: 2rem;
+        align-self: center;
+    }
+
+
+
+
+
+}
