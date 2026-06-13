@@ -29,10 +29,12 @@
     </main> -->
 
     <div class="container">
-        <h1>Ready, Set, Bon-appétit</h1>
         <form action="/search" method="POST">
-            <input type="text" name="query" placeholder="Search" required>
-            <button type="submit">Search Recipe</button>
+            <label for="searchingredient">Ingredient:</label>
+            <div class="input-container" >
+            <input id= "searchingredient" type="text" name="query" placeholder="(Ex. tomato)" required>
+            <button type="submit">Search</button>
+            </div>
         </form>
     </div>
 

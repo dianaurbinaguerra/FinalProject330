@@ -45,12 +45,12 @@ h1{
 
 }
 
-.container {
+/* .container {
     width: 320px;
     margin: 10px auto;
-}
+} */
 
-.card {
+.recipe-card{
     box-shadow: 0 50px 55px -30px #E0C375;
 }
 
@@ -73,46 +73,13 @@ h1{
         align-items: center;
     }
 
-    /* HOME RENTALS */
-
-    .container {
+    /* .container {
         display: flex;
         justify-content: space-around;
         margin: 1rem;
         padding-top: 2rem;
 
-    }
-
-
-    /* #attractionsdiv {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        margin: 2rem;
-        padding: 2rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
     } */
-
-    /* #locationsdiv {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin: 2rem;
-        padding: 2rem;
-
-    } */
-
-    .locationspic {
-        display: grid;
-        grid-template-columns: 200px 1fr;
-    }
-
-    .visiblehr {
-        display: block;
-    }
-
-
-    /* WEATHER */
-
 
     #recipe-div{
         display: flex;
@@ -248,7 +215,16 @@ h1{
     }
 
 
+ .input-container {
+     display: flex;
+      width: 100%;
+     /* Aligns items horizontally */
+ }
 
+ .input-container input {
+     flex: 1;
+     /* Tells the input to stretch and fill the remaining space */
+ }
 
 
 }
