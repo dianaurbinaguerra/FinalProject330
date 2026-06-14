@@ -10,21 +10,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Search Result</h1>
-        <ul>
+    <h1>Search Result</h1>
+    <div class="results-container">
         <% recipes.forEach(recipe => { %>
-            <li>
-                <a href="/recipe/<%= recipe.id %>">
+            <a href="/recipe/<%= recipe.id %>">
                 <div class="recipe-card">
                     <img class="recipe-image" src="<%= recipe.image %>" alt="<%=recipe.title %>" />
                     <h2 class="recipe-title"><%= recipe.title %></h2>
                 </div>
-            </li>
-
-        <% }) %>
-        </ul>
-        <a href="/">Back to Home Page</a>
+            </a>
+        <% }) %>       
+    </div>
+    <div class="back-to-home">
+      <a href="/">Back to Home Page</a>
     </div>
 </body>
 </html>

@@ -11,12 +11,12 @@ main {
 
 h3,
 h2 {
-    color: var(--primary-color);
+    color: var(--text-color);
     font-family: "Montserrat", sans-serif;
 }
 
 p {
-    color: var(--primary-color);
+    color: var(--text-color);
     font-family: "Montserrat", sans-serif;
 
 }
@@ -45,19 +45,60 @@ h1{
 
 }
 
-/* .container {
-    width: 320px;
-    margin: 10px auto;
-} */
+ .results-container {
+    display: grid;
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* Sets a 10px spacing gap between rows and columns */
+    gap: 10px;
+    /* display: inline-grid; */
+        /* Shrink-wraps to the widest content */
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* gap: 16px; */
+    /* padding: 15px; */
+    background-color: var(--primary-color);
+    width: 95%;
+    margin-top: 2rem;
+    padding: 1rem;
+
+
+    grid-template-rows: auto 1fr;
+    gap: 20px;
+} 
 
 .recipe-card{
-    box-shadow: 0 50px 55px -30px #E0C375;
+    background-color: var(--primary-color);
+    padding: 15px;
+} 
+
+.recipe-card h2{
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+.recipe-image {
+    width: 100%;
+    /* image fills the card width */
+    height: auto;
+    /* maintains aspect ratio */
+    display: block;
+    /* removes extra whitespace below images */
+}
+
+.results-container a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
 
 
-@media only screen and (min-width: 600px) {
+
+
+/* @media only screen and (min-width: 600px) { */
 
     :root {
         --background-color: #FFF5E5;
@@ -133,7 +174,7 @@ h1{
 
     input[type=submit] {
         font-size: 1rem;
-        padding: 0.5rem;
+        padding: 1rem;
     }
 
     form label.top,
@@ -142,78 +183,14 @@ h1{
 
     }
 
-    /* CONTACT */
-
-    hr {
-        display: none;
-    }
-
-    #map {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    }
-
-
-    #faqcontact {
-        display: grid;
-        grid-template-columns: 60% 1fr;
-        margin: 2rem;
-    }
-
-
-    #faqdiv {
-        padding: 2rem;
-        margin-right: 1rem;
-        text-align: left;
-        padding-right: 4rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-    }
+ 
 
     #contactdiv {
         padding: 2rem;
     }
 
-    /* TOURS */
-
-    #tours {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        margin: 2rem;
-    }
-
-    #tours div {
-        box-shadow: 2px 5px 5px #c2c1c1;
-        margin: 1rem;
-        padding: 1rem;
-        height: 650px;
-    }
-
-    #tours div:hover {
-        box-shadow: 0 0 11px;
-    }
-
-    #beachdiv {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin: 2rem;
-    }
-
-    .responsive {
-        width: 100%;
-    }
-
-    #beach1 {
-        grid-column: 1/2;
-    }
-
-    #beachmap {
-        display: block;
-        padding: 2rem;
-        align-self: center;
-    }
-
+ 
+  
 
  .input-container {
      display: flex;
@@ -226,5 +203,57 @@ h1{
      /* Tells the input to stretch and fill the remaining space */
  }
 
+ .meal-plan {
+     display: flex;
+     margin-top: 2rem;
+     border-collapse: collapse;
+     width: 100%;
+ }
 
-}
+ .meal-plan th,
+ .meal-plan td {
+     border: 1px solid #969696;
+     padding: 8px;
+     text-align: center;
+ }
+
+ .meal-plan th {
+     background-color: var(--text-color);
+     color: white;
+ }
+
+ #meal-plan-table {
+     width: 100%;
+     border-collapse: collapse;
+ }
+
+ #backtohome {
+     /* Step 1: Make it behave like a button box */
+     display: inline-block;
+     padding: 12px 24px;
+
+     /* Step 2: Remove default link styling */
+     text-decoration: none;
+
+     /* Step 3: Add colors and typography */
+     background-color: var(--accent1-color);
+     color: #ffffff;
+     font-family: sans-serif;
+     font-size: 16px;
+     font-weight: bold;
+
+     /* Step 4: Round corners and add smooth transitions */
+     border-radius: 4px;
+     transition: background-color 0.2s ease, transform 0.1s ease;
+
+     /* Step 5: Fix interaction indicators */
+     cursor: pointer;
+     text-align: center;
+
+
+    justify-content: center;
+
+
+ }
+
+/* } */

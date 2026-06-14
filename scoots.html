@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="SCOOTS Homepage by Diana Urbina Guerra"/>
+        <meta name="author" content="Diana Urbina Guerra" />
+        <title>SCOOTS Home</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&family=Tiro+Kannada&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="scoots-s.css" />
+        <link rel="stylesheet" href="scoots-m.css" />
+        <link rel="stylesheet" href="scoots-l.css" />
+        <link rel="stylesheet" href="normalize.css" />
+        <script defer src="scoots.js"></script>
+    </head>
+    <body>
+        <header>
+            <picture id="logo">
+                <img src="images/logo.png" width="300" alt="scootslogo">
+            </picture>
+        </header>
+        <nav class="navbar">
+            <ul class="navigation">
+                <li><a href="#" onclick="toggleMenu()">Menu</a></li>
+                <li class="active"><a href="scoots.html">HOME</a></li>
+                <li><a href="rentals.html">RENTALS</a></li>
+                <li><a href="reservations.html">RESERVATIONS</a></li>
+                <li><a href="tours.html">TOURS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2 class="title">RENTALS IN SCOOTS</h2>
+            <div class="rentals-div">
+                <div id="option1">
+                    <picture id="rental-img1">
+                            <source id="scooter-large" srcset="images/scooter400.jpeg" media="(min-width: 400px)">
+                        <img id="scooter-small"  src="images/scooter.png" alt="honda-small">
+                    </picture>
+                    <section id="rental-info1">
+                        <h2>Honda Motor Scooters</h2>
+                        <p>Honda Metropolitan (49cc)—1 person</p>
+                        <p>Honda Dio (110cc)—2 person</p>
+                        <p>Honda PCX150 (149cc)—2 person</p>
+                    </section>  
+                </div>
+                <div id="option2">
+                    <picture id="rental-img2">
+                            <source id="atv-large" srcset="images/atv400.jpeg" media="(min-width: 400px)">
+                        <img id="atv-small"  src="images/quad.png" alt="atv-small">
+                    </picture>
+                    <section id="rental-info2">
+                        <h2>ATV Side-by-Side</h2>
+                        <p>Honda Pioneer 1000</p>
+                    </section>  
+                </div>
+                <div id="option3">
+                    <picture id="rental-img3">
+                        <source id="jeep-large" srcset="images/jeep400.jpeg" media="(min-width: 400px)">
+                    <img id="jeep-small"  src="images/jeep.png" alt="honda-small">
+                </picture>
+                <section id="rental-info3">
+                    <h2>Jeep Rentals</h2>
+                    <p>4-door Jeep Wrangler manual with A/C</p>
+                    <p>2-door Jeep Wrangler—open air—manual</p>
+                </section> 
+                </div>
+            </div>
+            <form  action="reservations.html">
+                <input id="button" type="submit" value="Start a Reservation" />
+            </form>
+            <h2>Where to find us...</h2>
+            <div id="locationsdiv">
+                <div class="locationspic">
+                    <img            
+                    src="images/placeholder-image.webp"
+                    data-src="images/location1.jpeg"         
+                    alt="palancar snorkling" width="200" height="300">
+                    <div>
+                    <h3>Main Location</h3>
+                    <p>5 Avenida Bis Sur 1197</p>
+                    <p>Gonzalo Guerrero</p>
+                    <p>77600 San Miguel de Cozumel, Q.R.</p>
+                    <p>Mexico</p>
+                    </div>
+                </div>
+                <div class="locationspic">
+                    <img            
+                    src="images/placeholder-image.webp"
+                    data-src="images/location2.jpeg" 
+                    alt="Catamaran snorkling" width="200" height="300">
+                    <div>
+                    <h3>Second Location</h3>
+                    <p>Punta Nte.</p>
+                    <p>77682 San Miguel de Cozumel, Quintana Roo</p>
+                    <p>Mexico</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="visiblehr">
+            <h2>Some Attractions in Conzumel</h2>
+            <div id="attractionsdiv">
+                <div id="attraction1">
+                    <img            
+                    src="images/placeholder-image.webp"
+                    data-src="images/attraction1.jpeg"         
+                    alt="scuba diving" width="200" height="375">
+                    <h3>Scuba Diving</h3>
+                    <p>*Location: Pancalar Beach</p>
+                </div>
+                <div id="attraction2">
+                    <img            
+                    src="images/placeholder-image.webp"
+                    data-src="images/attraction2.jpeg" 
+                    alt="corn" width="200" height="375">
+                    <h3>Conzumel Street Food</h3>
+                    <p>*Location: La Posada de Marta</p>
+                </div>
+                <div id="attraction3">
+                    <img            
+                    src="images/placeholder-image.webp"
+                    data-src="images/attraction3.jpeg" 
+                    alt="paddling" width="200" height="375">
+                    <h3>Paddling with view</h3>
+                    <p>*Location: El Cielo Beach</p>
+                </div>
+                <div id="attraction4">
+                    <img            
+                    src="images/placeholder-image.webp"
+                    data-src="images/attraction4.jpeg" 
+                    alt="street art" width="200" height="375">
+                    <h3>Street Art</h3>
+                    <p>*Location: 7671 San Miguel de Conzumel</p>
+                </div>
+            </div>
+            <div class="weather-div">
+                <div id="current-weather-div">
+                    <h3>Current Weather</h3>
+                    <img id="c-icon" src="#" alt="c-icon" width="50">
+                    <p>Description: <span id="c-description"></span></p>
+                    <p class="stats">Humidity: <span id="c-humidity"></span>%</p>
+                    <p>Temp: <span id="c-temp"></span>°F</p>
+                </div>
+                <div id="forecast">
+                <div class="day1">
+                    <h3><span id="dayName1"></span></h3>
+                    <img id="icon1" src="#" alt="icon1" width="50">
+                    <p>Humidity: <span id="humidity1"></span>%</p>
+                    <p>Temp: <span id="temp1"></span>°F</p>
+                </div>  
+                <div class="day2">
+                    <h3><span id="dayName2"></span></h3>
+                    <img id="icon2" src="#"  alt="icon2" width="50">
+                    <p>Humidity: <span id="humidity2"></span>%</p>
+                    <p>Temp: <span id="temp2"></span>°F</p>
+                </div>  
+                <div class="day3">
+                    <h3><span id="dayName3"></span></h3>
+                    <img id="icon3" src="#"  alt="icon3" width="50">
+                    <p>Humidity: <span id="humidity3"></span>%</p>
+                    <p>Temp: <span id="temp3"></span>°F</p>
+                </div>  
+                <div class="day4">
+                    <h3><span id="dayName4"></span></h3>
+                    <img id="icon4" src="#" alt="icon4" width="50">
+                    <p>Humidity: <span id="humidity4"></span>%</p>
+                    <p>Temp: <span id="temp4"></span>°F</p>
+                </div>      
+                <div class="day5">
+                    <h3><span id="dayName5"></span></h3>
+                    <img id="icon5" src="#" alt="icon5" width="50">
+                    <p>Humidity: <span id="humidity5"></span>%</p>
+                    <p>Temp: <span id="temp5"></span>°F</p>
+                    </div>    
+                </div> 
+            </div>
+        </main>
+        <footer>
+            <div>
+            <p>
+                &copy;<span id="year"></span> |
+                <a href="https://github.com/Dianauguerra/Dianauguerra.github.io">Scoots by Diana Urbina Guerra</a> | <a href="resource.html">Resources</a> | VA, USA
+                |
+                <a href="https://www.byui.edu/online">BYUI Online Learning</a>
+                
+            </p>
+            <p>Last Modified:</p>
+            <p id="lastMod"></p>
+            <p>E-mail: CustomerService@Scoots.com</p>
+            <p>Phone: 1-800-122-3456</p>
+            </div>
+            <div>
+                <p>
+                <a target="_blank" href="https://www.facebook.com/"><img src="images/facebook.png" alt="facebook-icon"></a><span class="socialdividers">.:.</span> 
+                <a target="_blank" href="https://www.instagram.com/"><img src="images/instagram.png" alt="instagram-icon"></a><span class="socialdividers">.:.</span> 
+                <a target="_blank" href="https://www.twitter.com/"><img src="images/twitter.png" alt="twitter-icon"></a></p>
+            </div>
+        </footer>
+    </body>
+
