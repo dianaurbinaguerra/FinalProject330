@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+
+        :root {
+            --background-color: #FFF5E5;
+            --primary-color: #E0C375;
+            --text-color: #26331C;
+            --accent1-color: #E7683A;
+            --buttons--color: #26331C;
+        }
+
+
 body {
     background-color: var(--background-color);
 }
@@ -73,7 +84,7 @@ h1{
 .recipe-card h2{
     text-align: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0;
     padding: 0.5rem 0;
     text-decoration: none;
@@ -86,6 +97,7 @@ h1{
     /* maintains aspect ratio */
     display: block;
     /* removes extra whitespace below images */
+    border-radius: 5%;
 }
 
 .results-container a {
@@ -93,20 +105,41 @@ h1{
     color: inherit;
 }
 
+.back-to-home {
+    text-align: center;
+    /* centers the button */
+    margin: 2rem 0;
+}
 
+.back-to-home a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--buttons--color);
+    /* orange */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.back-to-home a:hover {
+    background-color: var(--accent1-color);
+    /* slightly darker orange */
+    transform: translateY(-2px);
+}
+
+.back-to-home a:active {
+    transform: translateY(0);
+}
 
 
 
 
 /* @media only screen and (min-width: 600px) { */
 
-    :root {
-        --background-color: #FFF5E5;
-        --primary-color: #E0C375;
-        --text-color: #26331C;
-        --accent1-color: #DD9455;
-        --buttons--color: #26331C;
-    }
+
 
     footer {
         display: flex;
@@ -146,24 +179,6 @@ h1{
         background-color: white;
     }
 
-    /* RENTAL FORM */
-
-    #option1,
-    #option2,
-    #option3 {
-
-        justify-content: center;
-
-    }
-
-    #rental1,
-    #rental2,
-    #rental3 {
-        padding: 2rem;
-        margin: 2rem 4rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-    }
 
     input[type=text],
     input[type=tel],
