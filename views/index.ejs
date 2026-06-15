@@ -26,8 +26,6 @@
             <button type="submit">Search</button>
         </form>
     </main> -->
-
-    <div class="container">
         <form action="/search" method="POST">
             <label for="searchingredient">Ingredient:</label>
             <div class="input-container" >
@@ -35,47 +33,25 @@
             <button class="btn" type="submit">Search</button>
             </div>
         </form>
-        <div class="meal-plan">
-        <table id="meal-plan-table">
-            <thead>
-                <tr>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                    <th>Sunday</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </div>
-    </div>
-</table>
-<div>
+<div class="recipe-grid">
+    <% randomRecipes.slice(0, 3).forEach(recipe=> { %>
+        <div class="recipe-card">
+            <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
 
-<a href="/planner">
-    <button class="btn">Planner</button>
-</a>
+            <h3>
+                <%= recipe.title %>
+            </h3>
+
+            <a href="/recipe/<%= recipe.id %>">
+                <button class="btn">View Recipe</button>
+            </a>
+        </div>
+        <% }) %>
 </div>
+    <div class="planner-button">
+        <a href="/planner">
+            <button class="btn">Planner</button>
+        </a>
+    </div>
 </body>
 </html>

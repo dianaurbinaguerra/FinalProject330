@@ -328,3 +328,20 @@ h1{
     font-size: 1.5rem;
     text-align: center;
  }
+.planner-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+ .featured-recipes {
+    margin: 40px 0;
+    text-align: center;
+ }
+
+ @media screen and (min-width: 768px) {
+
+     .recipe-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+     }
+
+ }

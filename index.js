@@ -30,9 +30,25 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/', (req, res) => {
-    res.render('index')
-})
+// app.get('/', (req, res) => {
+//     res.render('index')
+// })
+
+app.get('/', async (req, res) => {
+  try {
+    const response = await axios.get(
+      `https://api.spoonacular.com/recipes/random?number=6&apiKey=${key_api}`
+    );
+
+    const randomRecipes = response.data.recipes;
+
+    res.render('index', { randomRecipes });
+
+  } catch (error) {
+    console.error(error);
+    res.render('index', { randomRecipes: [] });
+  }
+});
 
 app.post('/search', async(req, res) => {
     const { query } = req.body;
@@ -154,3 +170,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
