@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/normalize.css" />
     <title>Document</title>
 </head>
+<script src="/js/recipe.js"></script>
 <body>
 
     <div class="container">Í
@@ -26,6 +27,35 @@
                 <li><%= step.step %></li>
             <% }) %>
         </ol>
+        <div class="recipe-card">
+            <!-- 👇 ADD THESE HERE -->
+            <select class="daySelect">
+                <option>Monday</option>
+                <option>Tuesday</option>
+                <option>Wednesday</option>
+                <option>Thursday</option>
+                <option>Friday</option>
+                <option>Saturday</option>
+                <option>Sunday</option>
+            </select>
+
+            <select class="mealType">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+            </select>
+
+            <button onclick="saveMeal(
+            '<%= recipe.id %>',
+            '<%= recipe.title %>',
+            '<%= recipe.image %>',
+            this
+        )">
+                Save to Meal Plan
+            </button>
+        </div>
+
         <a href="/">Back to Home Page</a>
     </div>
 </body>
