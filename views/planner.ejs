@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self' http://localhost:3000;">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/recipe-s.css" />
     <link rel="stylesheet" href="/recipe-l.css" />
@@ -11,19 +11,37 @@
         rel="stylesheet">
     <title>Meal Planner</title>
 </head>
+<script>
+    async function removeMeal(mealId) {
+        console.log("CLICKED DELETE:", mealId);
+
+        const res = await fetch(`/api/user/meal-planner/${mealId}`, {
+            method: "DELETE"
+        });
+
+        const data = await res.json();
+        console.log(data);
+
+        if (res.ok) {
+            location.reload();
+        } else {
+            alert("Error deleting meal");
+        }
+    }
+</script>
 <body>
 <div class="week-grid">
 
     <% Object.keys(planner).forEach(day=> { %>
         <div class="day-column">
-            <h2>
+            <h2 class="weekday">
                 <%= day %>
             </h2>
 
             <% planner[day].forEach(meal=> { %>
-                <div class="meal-card">
+                <div class="meal-week-card">
                     <img src="<%= meal.recipeImage %>" />
-                    <p>
+                    <p id="recipe-week-name">
                         <%= meal.recipeName %>
                     </p>
                     <small>
@@ -40,5 +58,6 @@
 
 
 </div>
+<a href="/">Back to Home Page</a>
 </body>
 </html>

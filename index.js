@@ -88,20 +88,19 @@ app.post('/api/user/meal-planner', async (req, res) => {
   }
 });
 
+app.delete('/api/user/meal-planner/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
 
+    await MealPlanner.findByIdAndDelete(id);
 
+    res.json({ message: "Meal removed" });
 
-// app.delete('/api/user/meal-planner/:id', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-
-
-//     res.json({ message: "Meal removed", planner: user.mealPlanner });
-
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 async function removeMeal(mealId) {
   const res = await fetch(`/api/user/meal-planner/${mealId}`, {

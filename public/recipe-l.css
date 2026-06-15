@@ -271,4 +271,60 @@ h1{
 
  }
 
-/* } */
+ .week-grid {
+
+   display: grid;
+   /* grid-template-columns: repeat(7, 1fr); */
+   gap: 1rem;
+   padding: 1rem;
+   background-color: var(--background-color);
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    
+ }
+
+
+ .meal-week-card {
+   background-color: var(--primary-color);
+   border: 1px solid #eee;
+   border-radius: 8px;
+   padding: 1rem;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   transition: transform 0.2s;
+ }
+
+ .meal-week-card:hover {
+   transform: translateY(-2px);
+   background-color: var(--accent1-color);
+ }
+
+ .meal-week-card img {
+   max-width: 100%;
+   border-radius: 8px;
+ }
+
+ .meal-week-card p {
+   font-weight: bold;
+   margin: 0.5rem 0;
+ }
+
+ .meal-week-card small {
+   color: #666;
+ }
+
+ #recipe-week-name {
+   font-weight: bold;
+   margin: 0.5rem 0;
+ }
+
+ .meal-week-card small {
+   color: #666;
+}
+
+ .weekday {
+    color: var(--text-color);
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+ }
