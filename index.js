@@ -1,9 +1,23 @@
-const express = require('express')
-const axios = require ('axios')
-const ejs = require('ejs')
+require('dotenv').config();
 
+const express = require('express');
+const axios = require('axios');
+const ejs = require('ejs');
+const mongoose = require('mongoose');
 
-const app = express()
+const app = express();
+
+async function connectDB() {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+connectDB();
+
 const key_api = "381eeccb156f4925987305da3e595162"
 
 app.set('view engine', 'ejs')
@@ -34,67 +48,19 @@ app.listen(PORT, () => {
 });
 
 
-
-// app.post('/search', async (req, res) => {
-//     const { query } = req.body;
-
-//     try {
-//         // Spoonacular request
-//         const spoonacularPromise = axios.get(
-//             `https://api.spoonacular.com/recipes/complexSearch`,
-//             {
-//                 params: {
-//                     query,
-//                     apiKey: key_api
-//                 }
-//             }
-//         );
-
-//         // Edamam request
-//         const edamamPromise = axios.get(
-//             `https://api.edamam.com/api/recipes/v2`,
-//             {
-//                 params: {
-//                     type: "public",
-//                     q: query,
-//                     app_id: process.env.EDAMAM_APP_ID,
-//                     app_key: process.env.EDAMAM_APP_KEY
-//                 }
-//             }
-//         );
-
-//         // run both at the same time
-//         const [spoonRes, edamamRes] = await Promise.all([
-//             spoonacularPromise,
-//             edamamPromise
-//         ]);
-
-//         // normalize Spoonacular
-//         const spoonRecipes = spoonRes.data.results.map(r => ({
-//             id: r.id,
-//             title: r.title,
-//             image: r.image,
-//             source: "spoonacular"
-//         }));
-
-//         // normalize Edamam
-//         const edamamRecipes = edamamRes.data.hits.map(h => ({
-//             id: h.recipe.uri, // unique string
-//             title: h.recipe.label,
-//             image: h.recipe.image,
-//             source: "edamam",
-//             url: h.recipe.url
-//         }));
-
-//         // combine results
-//         const recipes = [...spoonRecipes, ...edamamRecipes];
-
-//         res.render('results', { recipes });
-
-//     } catch (err) {
-//         console.error(err.response?.data || err.message);
-//         res.send("Error fetching recipes");
-//     }
-
-    
-// });
+const userSchema = new mongoose.Schema({
+  username: String,
+  email: String,
+  // The "Shopping Cart" for meals
+  mealPlanner: [{
+    recipeId: { type: String, required: true },
+    recipeName: String,
+    recipeImage: String,
+    dayOfWeek: { 
+      type: String, 
+      enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      required: true 
+    },
+    mealType: { type: String, enum: ['breakfast', 'lunch', 'dinner', 'snack'] }
+  }]
+});
