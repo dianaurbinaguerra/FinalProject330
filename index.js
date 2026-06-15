@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+
+
 const express = require('express');
 const axios = require('axios');
 const ejs = require('ejs');
@@ -9,6 +11,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json());
+
 
 async function connectDB() {
   try {
@@ -61,7 +64,7 @@ const MealPlanner = mongoose.model('MealPlanner', mealPlannerSchema);
 
 
 app.post('/api/user/meal-planner', async (req, res) => {
-  try {
+    try {
     const { recipeId, recipeName, recipeImage, dayOfWeek, mealType } = req.body;
 
     const meal = await MealPlanner.create({
@@ -85,47 +88,20 @@ app.post('/api/user/meal-planner', async (req, res) => {
   }
 });
 
-// GET /api/user/meal-planner/:userId
-app.get('/api/user/meal-planner/:userId', async (req, res) => {
-  try {
-    const user = await User.findById(req.params.userId);
-    if (!user) return res.status(404).json({ message: "User not found" });
-
-    // Structure the data for the main page layout
-    const mainPageLayout = {
-      Monday: [], Tuesday: [], Wednesday: [], Thursday: [], Friday: [], Saturday: [], Sunday: []
-    };
-
-    // Sort each item from the "cart" into its respective day bucket
-    user.mealPlanner.forEach(item => {
-      if (mainPageLayout[item.dayOfWeek]) {
-        mainPageLayout[item.dayOfWeek].push(item);
-      }
-    });
-
-    res.status(200).json(mainPageLayout);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
 
 
-app.delete('/api/user/meal-planner/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
 
-    const user = await User.findOneAndUpdate(
-      { "mealPlanner._id": id },
-      { $pull: { mealPlanner: { _id: id } } },
-      { new: true }
-    );
+// app.delete('/api/user/meal-planner/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    res.json({ message: "Meal removed", planner: user.mealPlanner });
 
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
+//     res.json({ message: "Meal removed", planner: user.mealPlanner });
+
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
 
 async function removeMeal(mealId) {
   const res = await fetch(`/api/user/meal-planner/${mealId}`, {
@@ -138,17 +114,13 @@ async function removeMeal(mealId) {
   } else {
     alert("Error removing meal");
   }
-}
+};
 
-app.get('/meal-planner/:userId', async (req, res) => {
+app.get('/planner', async (req, res) => {
   try {
-    const user = await User.findById(req.params.userId);
+    const meals = await MealPlanner.find();
 
-    if (!user) {
-      return res.status(404).send("User not found");
-    }
-
-    const mainPageLayout = {
+    const planner = {
       Monday: [],
       Tuesday: [],
       Wednesday: [],
@@ -158,19 +130,25 @@ app.get('/meal-planner/:userId', async (req, res) => {
       Sunday: []
     };
 
-    user.mealPlanner.forEach(item => {
-      if (mainPageLayout[item.dayOfWeek]) {
-        mainPageLayout[item.dayOfWeek].push(item);
+    meals.forEach(meal => {
+      if (planner[meal.dayOfWeek]) {
+        planner[meal.dayOfWeek].push(meal);
       }
     });
 
-    return res.render("planner", { planner: mainPageLayout });
+    res.render('planner', { planner });
 
   } catch (err) {
     console.error(err);
-    return res.status(500).send(err.message);
+    res.status(500).send(err.message);
   }
 });
+ 
+
+// app.get('/planner', (req, res) => {
+//   console.log('Planner route reached');
+//   res.send('Planner route works!');
+// });
 
 const PORT = process.env.PORT || 3000;
 

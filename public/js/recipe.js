@@ -22,9 +22,10 @@ async function saveMeal(recipeId, recipeName, recipeImage, button) {
 
   const data = await response.json();
 
-  if (response.ok) {
+    if (response.ok) {
     alert("Saved to Meal Planner!");
-  } else {
+    window.location.href = "/planner";
+    } else {
     alert("Error saving meal");
-  }
+    }
 }
