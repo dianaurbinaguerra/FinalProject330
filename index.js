@@ -20,7 +20,6 @@ app.post('/search', async(req, res) => {
     const recipes = response.data.results;
     res.render('results', { recipes })
 })
-
 app.get('/recipe/:id', async (req, res) => {
     const { id } = req.params;
     const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${key_api}`)
