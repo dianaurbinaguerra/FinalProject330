@@ -305,3 +305,44 @@ button:hover,
     justify-content: center;
     font-size: 1.5rem;
 }
+
+/* RESULTS GRID (mobile = 1 column) */
+/* .results-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+} */
+
+/* Recipe card */
+.results-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.recipe-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Image */
+.recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Title */
+.recipe-title {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Remove link styling */
+.results-container a {
+    text-decoration: none;
+    color: inherit;
+}

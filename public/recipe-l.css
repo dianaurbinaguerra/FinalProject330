@@ -53,6 +53,7 @@
 
     .recipe-grid {
         grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         max-width: 1000px;
         margin: 0 auto;
     }
@@ -166,3 +167,18 @@
         margin-top: 30px;
     }
 }
+
+ .results-container {
+    grid-template-columns: repeat(3, 1fr);
+     max-width: 1100px;
+     margin: 0 auto;
+     gap: 20px;
+ }
+
+ .recipe-card {
+     padding: 15px;
+ }
+
+ .recipe-title {
+     font-size: 18px;
+ }
