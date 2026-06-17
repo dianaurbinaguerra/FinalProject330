@@ -56,12 +56,39 @@ app.post('/search', async(req, res) => {
     const recipes = response.data.results;
     res.render('results', { recipes })
 })
+// app.get('/recipe/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${key_api}`)
+//     const recipe = response.data;
+//     res.render('recipe', { recipe })
+// })
 app.get('/recipe/:id', async (req, res) => {
+  try {
     const { id } = req.params;
-    const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${key_api}`)
+
+    const response = await axios.get(
+      `https://api.spoonacular.com/recipes/${id}/information`,
+      {
+        params: { apiKey: key_api }
+      }
+    );
+
     const recipe = response.data;
-    res.render('recipe', { recipe })
-})
+
+    if (!recipe) {
+      return res.status(404).send("Recipe not found");
+    }
+
+    res.render('recipe', {
+  recipe,
+  nutrition: null
+});
+
+  } catch (err) {
+    console.error(err.response?.data || err.message);
+    res.status(500).send("Error loading recipe");
+  }
+});
 
 
 
@@ -79,8 +106,33 @@ const mealPlannerSchema = new mongoose.Schema({
 const MealPlanner = mongoose.model('MealPlanner', mealPlannerSchema);
 
 
+// app.post('/api/user/meal-planner', async (req, res) => {
+//     try {
+//     const { recipeId, recipeName, recipeImage, dayOfWeek, mealType } = req.body;
+
+//     const meal = await MealPlanner.create({
+//       recipeId,
+//       recipeName,
+//       recipeImage,
+//       dayOfWeek,
+//       mealType
+//     });
+
+//     res.status(200).json({
+//       message: "Meal added",
+//       meal
+//     });
+      
+//     res.render("planner", { planner: mainPageLayout });
+
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
 app.post('/api/user/meal-planner', async (req, res) => {
-    try {
+  try {
     const { recipeId, recipeName, recipeImage, dayOfWeek, mealType } = req.body;
 
     const meal = await MealPlanner.create({
@@ -95,8 +147,6 @@ app.post('/api/user/meal-planner', async (req, res) => {
       message: "Meal added",
       meal
     });
-      
-    res.render("planner", { planner: mainPageLayout });
 
   } catch (error) {
     console.error(error);
@@ -118,18 +168,18 @@ app.delete('/api/user/meal-planner/:id', async (req, res) => {
   }
 });
 
-async function removeMeal(mealId) {
-  const res = await fetch(`/api/user/meal-planner/${mealId}`, {
-    method: "DELETE"
-  });
+// async function removeMeal(mealId) {
+//   const res = await fetch(`/api/user/meal-planner/${mealId}`, {
+//     method: "DELETE"
+//   });
 
-  if (res.ok) {
-    alert("Removed!");
-    location.reload(); // simple refresh
-  } else {
-    alert("Error removing meal");
-  }
-};
+//   if (res.ok) {
+//     alert("Removed!");
+//     location.reload(); // simple refresh
+//   } else {
+//     alert("Error removing meal");
+//   }
+// };
 
 app.get('/planner', async (req, res) => {
   try {

@@ -1,18 +1,307 @@
-.recipe-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
+:root {
+    --background-color: #FFF5E5;
+    --primary-color: #E0C375;
+    --text-color: #26331C;
+    --accent1-color: #E7683A;
+    --buttons--color: #26331C;
+}
+
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Montserrat", Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    display: flex;
+    /* justify-content: center; */
+    /* padding: 1rem; */
+    background-color: var(--primary-color);
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1px;
+            /* Decreases top inner space */
+            padding-bottom: 1px;
+            /* Decreases bottom inner space */
+            margin: 0;
+    
+}
+
+/* =========================
+   CONTAINERS
+========================= */
+
+.container {
+    width: 100%;
+    padding: 15px;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 18px;
     margin-top: 20px;
 }
 
-.recipe-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
+h3 {
+    margin: 10px 0;
 }
 
-.recipe-card img {
+/* =========================
+   IMAGES
+========================= */
+
+img {
     width: 100%;
+    height: auto;
     border-radius: 10px;
+    max-width: 500px;
+    max-height: 500px;
+}
+
+
+/* =========================
+   FORMS (SEARCH + SELECTS)
+========================= */
+
+form {
+    width: 100%;
+    padding: 1rem;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"],
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.btn {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: var(--buttons--color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover,
+.btn:hover {
+    background: var(--accent1-color);
+}
+
+/* =========================
+   RECIPE GRID (HOME PAGE)
+========================= */
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 1rem;
+}
+
+/* recipe cards */
+.recipe-card {
+    background: var(--primary-color);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =========================
+   RECIPE DETAIL CARD (SAVE AREA)
+========================= */
+
+.recipe-card select {
+    width: 100%;
+}
+
+/* =========================
+   PLANNER BUTTON
+========================= */
+
+.planner-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* =========================
+   WEEK PLANNER
+========================= */
+
+.week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.meal-week-card {
+    background-color: var(--primary-color);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+/* =========================
+   BACK LINK
+========================= */
+
+.back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-to-home a {
+    display: inline-block;
+    padding: 12px;
+    background: var(--buttons--color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* =========================
+  Recipe Container
+========================= */
+
+.recipe-container {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Title */
+.recipe-container h1 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Recipe image */
+.recipe-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Section headers */
+.recipe-container h2 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+/* Ingredients + instructions */
+.recipe-container ul,
+.recipe-container ol {
+    padding-left: 20px;
+}
+
+/* Nutrition box */
+.recipe-container .nutrition-list {
+    list-style: none;
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Controls section (select + button) */
+.recipe-container .recipe-card {
+    display: flex;
+    flex-direction: column;
+    /* STACKED on mobile */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Inputs */
+.recipe-container select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Button */
+.recipe-container button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: var(--buttons--color);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.recipe-container button:hover {
+    background: var(--accent1-color);
+}
+
+/* Back link */
+.recipe-container .back-to-home {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#discover-new-meals{
+    text-align: center;
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    justify-content: center;
+    font-size: 1.5rem;
 }

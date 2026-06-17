@@ -14,7 +14,7 @@
 <body>
             <header>
                 <picture id="logo">
-                    <img src="/images/LogoNameLarge.png" width="300" alt="recipenamelogo">
+                    <img src="/images/LogoNameLarge.png" width="80" alt="recipenamelogo">
                 </picture>
             </header>
     <!-- <header>
@@ -34,6 +34,10 @@
             </div>
         </form>
 <div class="recipe-grid">
+    <div id="discover-new-meals">
+        <h2>Discover New Meals</h2> 
+    </div>
+    
     <% randomRecipes.slice(0, 3).forEach(recipe=> { %>
         <div class="recipe-card">
             <img src="<%= recipe.image %>" alt="<%= recipe.title %>">
@@ -50,7 +54,7 @@
 </div>
     <div class="planner-button">
         <a href="/planner">
-            <button class="btn">Planner</button>
+            <button class="btn">View My Meal Planner</button>
         </a>
     </div>
 </body>

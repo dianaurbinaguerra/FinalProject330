@@ -10,8 +10,13 @@
 </head>
 <script src="/js/recipe.js"></script>
 <body>
+    <header>
+        <picture id="logo">
+            <img src="/images/LogoNameLarge.png" width="300" alt="recipenamelogo">
+        </picture>
+    </header>
 
-    <div class="container">
+    <div class="recipe-container">
         <h1><%= recipe.title %></h1>
         <img src="<%= recipe.image %>" alt="<%= recipe.title %>"/>
         <h2>Ingredients:</h2>
@@ -26,6 +31,19 @@
                 <li><%= step.step %></li>
             <% }) %>
         </ol>
+        <h2>Nutrition Facts</h2>
+        
+        <% if (nutrition && nutrition.totalNutrients) { %>
+            <ul class="nutrition-list">
+                <li>Calories: <%= nutrition.calories || "N/A" %>
+                </li>
+                <li>Fat: <%= nutrition.totalNutrients.FAT?.quantity?.toFixed(1) || 0 %> g</li>
+                <li>Protein: <%= nutrition.totalNutrients.PROCNT?.quantity?.toFixed(1) || 0 %> g</li>
+                <li>Carbs: <%= nutrition.totalNutrients.CHOCDF?.quantity?.toFixed(1) || 0 %> g</li>
+            </ul>
+            <% } else { %>
+                <p>Nutrition data not available</p>
+                <% } %>
         <div class="recipe-card">
             <select class="daySelect">
                 <option>Monday</option>
@@ -50,7 +68,7 @@
             '<%= recipe.image %>',
             this
         )">
-                Save to Meal Plan
+                Save to My Meal Plan
             </button>
         </div>
     <div class="back-to-home">

@@ -28,4 +28,17 @@ async function saveMeal(recipeId, recipeName, recipeImage, button) {
     } else {
     alert("Error saving meal");
     }
-}
+};
+
+async function removeMeal(mealId) {
+  const res = await fetch(`/api/user/meal-planner/${mealId}`, {
+    method: "DELETE"
+  });
+
+  if (res.ok) {
+    alert("Removed!");
+    location.reload(); // simple refresh
+  } else {
+    alert("Error removing meal");
+  }
+};

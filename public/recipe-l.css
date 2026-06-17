@@ -1,347 +1,168 @@
-@import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+/* =========================
+   DESKTOP OVERRIDES ONLY
+   (min-width: 600px+)
+========================= */
+
+@media (min-width: 600px) {
 
 
-:root {
-    --background-color: #FFF5E5;
-    --primary-color: #E0C375;
-    --text-color: #26331C;
-    --accent1-color: #E7683A;
-    --buttons--color: #26331C;
-}
-
-
-body {
-    background-color: var(--background-color);
-}
-
-main {
-    margin: 10px;
-    text-align: center;
-}
-
-h3,
-h2 {
-    color: var(--text-color);
-    font-family: "Montserrat", sans-serif;
-}
-
-p {
-    color: var(--text-color);
-    font-family: "Montserrat", sans-serif;
-
-}
-
-header {
-    display: flex;
-    justify-content: center;
-    background-color: var(--primary-color);
-    padding-bottom: 1rem;
-    
-}
-
-body {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
-    background: #FFF5E5;
-}
-
-h1{
-    color: #26331C;
-    font-size: 48px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    padding-top: 2rem;
-    text-align: center;
-
-}
-
- .results-container {
-    display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
-    /* Sets a 10px spacing gap between rows and columns */
-    gap: 10px;
-    /* display: inline-grid; */
-        /* Shrink-wraps to the widest content */
-     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    /* gap: 16px; */
-    /* padding: 15px; */
-    background-color: var(--primary-color);
-    width: 95%;
-    margin-top: 2rem;
-    padding: 1rem;
-
-
-    grid-template-rows: auto 1fr;
-    gap: 20px;
-} 
-
-.recipe-card{
-    background-color: var(--primary-color);
-    padding: 15px;
-} 
-
-.recipe-card h2{
-    text-align: center;
-    color: white;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0.5rem 0;
-    text-decoration: none;
-}
-
-.recipe-image {
-    width: 100%;
-    /* image fills the card width */
+    :root {
+            --background-color: #FFF5E5;
+            --primary-color: #E0C375;
+            --text-color: #26331C;
+            --accent1-color: #E7683A;
+            --buttons--color: #26331C;
+        }
+.logo img {
+    width: 80px;
+    /* adjust size here */
     height: auto;
-    /* maintains aspect ratio */
-    display: block;
-    /* removes extra whitespace below images */
-    border-radius: 5%;
 }
+    /* =========================
+       LAYOUT WIDTH
+    ========================= */
 
-.results-container a {
-    text-decoration: none;
-    color: inherit;
-}
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
 
-.back-to-home, .button {
-    text-align: center;
-    /* centers the button */
-    margin: 2rem 0;
-}
+    /* =========================
+       HEADINGS
+    ========================= */
 
-.back-to-home a , .btn{
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--buttons--color);
-    /* orange */
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    transition: background-color 0.3s ease,
-        transform 0.2s ease;
-}
+    h1 {
+        font-size: 36px;
+    }
 
-.back-to-home a:hover , .btn:hover {
-    background-color: var(--accent1-color);
-    /* slightly darker orange */
-    transform: translateY(-2px);
-}
+    /* =========================
+       SEARCH BAR ROW
+    ========================= */
 
-.back-to-home a:active, .btn:active {
-    transform: translateY(0);
-}
+    .input-container {
+        flex-direction: row;
+    }
+
+    input[type="text"] {
+        flex: 1;
+    }
+
+    /* =========================
+       HOME GRID = 3 COLUMNS
+    ========================= */
+
+    .recipe-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* =========================
+       HOVER EFFECTS
+    ========================= */
+
+    .recipe-card {
+        transition: transform 0.2s ease;
+    }
+
+    .recipe-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* =========================
+       BUTTONS INLINE
+    ========================= */
+
+    button,
+    .btn {
+        width: auto;
+        min-width: 150px;
+    }
+
+    /* =========================
+       RECIPE DETAIL SAVE SECTION
+    ========================= */
+
+    .recipe-card {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .recipe-card select {
+        width: 180px;
+    }
+
+    /* =========================
+       WEEK PLANNER = 7 COLUMN GRID
+    ========================= */
+
+    .week-grid {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    /* =========================
+       Recipe Container
+    ========================= */
 
 
+    .recipe-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
 
+    /* Title spans full width */
+    .recipe-container h1 {
+        grid-column: 1 / -1;
+        font-size: 36px;
+        text-align: center;
+    }
 
-/* @media only screen and (min-width: 600px) { */
+    /* Image spans full width */
+    .recipe-container img {
+        grid-column: 1 / -1;
+        max-width: 500px;
+        margin: 0 auto;
+    }
 
+    /* Lists layout */
+    .recipe-container ul,
+    .recipe-container ol {
+        grid-column: 1 / -1;
+    }
 
-
-    footer {
+    /* Nutrition section */
+    .recipe-container .nutrition-list {
+        grid-column: 1 / -1;
         display: flex;
         justify-content: space-around;
+    }
+
+    /* Controls row layout */
+    .recipe-container .recipe-card {
+        grid-column: 1 / -1;
+        flex-direction: row;   /* SIDE BY SIDE on desktop */
+        justify-content: center;
         align-items: center;
     }
 
-    /* .container {
-        display: flex;
-        justify-content: space-around;
-        margin: 1rem;
-        padding-top: 2rem;
-
-    } */
-
-    #recipe-div{
-        display: flex;
-        column-gap: 4rem;
-        padding: 1rem 4rem;
-
-
+    .recipe-container select {
+        width: 180px;
     }
 
-    .recipes-div {
-        display: flex;
-        justify-content: center;
-        column-gap: 2px;
-
-
+    .recipe-container button {
+        width: auto;
+        padding: 12px 20px;
     }
 
-    #current-weather-div {
-        display: block;
+    /* Back button spacing */
+    .recipe-container .back-to-home {
+        grid-column: 1 / -1;
+        margin-top: 30px;
     }
-
-    #header-img {
-        background-color: white;
-    }
-
-
-    input[type=text],
-    input[type=tel],
-    input[type=email],
-    select {
-        padding: 0.5rem;
-    }
-
-    input[type=submit] {
-        font-size: 1rem;
-        padding: 1rem;
-    }
-
-    form label.top,
-    form div {
-        font-size: 1rem;
-
-    }
-
- 
-
-    #contactdiv {
-        padding: 2rem;
-    }
-
- 
-  
-
- .input-container {
-     display: flex;
-      width: 100%;
-     /* Aligns items horizontally */
- }
-
- .input-container input {
-     flex: 1;
-     /* Tells the input to stretch and fill the remaining space */
- }
-
- .meal-plan {
-     display: flex;
-     margin-top: 2rem;
-     border-collapse: collapse;
-     width: 100%;
- }
-
- .meal-plan th,
- .meal-plan td {
-     border: 1px solid #969696;
-     padding: 8px;
-     text-align: center;
- }
-
- .meal-plan th {
-     background-color: var(--text-color);
-     color: white;
- }
-
- #meal-plan-table {
-     width: 100%;
-     border-collapse: collapse;
- }
-
- #backtohome {
-     /* Step 1: Make it behave like a button box */
-     display: inline-block;
-     padding: 12px 24px;
-
-     /* Step 2: Remove default link styling */
-     text-decoration: none;
-
-     /* Step 3: Add colors and typography */
-     background-color: var(--accent1-color);
-     color: #ffffff;
-     font-family: sans-serif;
-     font-size: 16px;
-     font-weight: bold;
-
-     /* Step 4: Round corners and add smooth transitions */
-     border-radius: 4px;
-     transition: background-color 0.2s ease, transform 0.1s ease;
-
-     /* Step 5: Fix interaction indicators */
-     cursor: pointer;
-     text-align: center;
-
-
-    justify-content: center;
-
-
- }
-
- .week-grid {
-
-   display: grid;
-   /* grid-template-columns: repeat(7, 1fr); */
-   gap: 1rem;
-   padding: 1rem;
-   background-color: var(--background-color);
-   border-radius: 8px;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    
- }
-
-
- .meal-week-card {
-   background-color: var(--primary-color);
-   border: 1px solid #eee;
-   border-radius: 8px;
-   padding: 1rem;
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   transition: transform 0.2s;
- }
-
- .meal-week-card:hover {
-   transform: translateY(-2px);
-   background-color: var(--accent1-color);
- }
-
- .meal-week-card img {
-   max-width: 100%;
-   border-radius: 8px;
- }
-
- .meal-week-card p {
-   font-weight: bold;
-   margin: 0.5rem 0;
- }
-
- .meal-week-card small {
-   color: #666;
- }
-
- #recipe-week-name {
-   font-weight: bold;
-   margin: 0.5rem 0;
- }
-
- .meal-week-card small {
-   color: #666;
 }
-
- .weekday {
-    color: var(--text-color);
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.5rem;
-    text-align: center;
- }
-.planner-button {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
- .featured-recipes {
-    margin: 40px 0;
-    text-align: center;
- }
-
- @media screen and (min-width: 768px) {
-
-     .recipe-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-     }
-
- }
